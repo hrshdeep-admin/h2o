@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="H2O Pressure Washing services — Pressure Washing, Window Cleaning, House Washing, Driveway, Deck & Fence, Parking Lot, Patio, and Sidewalk cleaning in Vernon, Kelowna & across the Okanagan.">
+  <title>Our Services | H2O Pressure Washing — Vernon & Kelowna, BC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:      #0a2540;
+      --navy-mid:  #1565c0;
+      --sky:       #29b6f6;
+      --sky-light: #e1f5fe;
+      --orange:    #f56400;
+      --orange-h:  #d45500;
+      --white:     #ffffff;
+      --off-white: #f5f9fc;
+      --text:      #0d1b2a;
+      --text-mid:  #3d5a73;
+      --text-lt:   #7092a8;
+      --border:    #cfe2ef;
+      --shadow:    0 4px 24px rgba(10,37,64,.10);
+      --shadow-lg: 0 10px 48px rgba(10,37,64,.18);
+      --r:         14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--navy); color: white;
+      padding: 9px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 900; gap: 10px;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+    .tb-phone {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .9rem; font-weight: 700; color: white; white-space: nowrap;
+    }
+    .tb-phone svg { width: 16px; height: 16px; fill: var(--sky); flex-shrink: 0; }
+    .tb-tag { font-size: .7rem; font-weight: 500; color: var(--sky); white-space: nowrap; display: none; }
+    @media(min-width:480px){ .tb-tag { display: block; } }
+    .btn-quote-top {
+      background: var(--orange); color: white;
+      padding: 7px 16px; border-radius: 50px;
+      font-weight: 700; font-size: .82rem; white-space: nowrap; flex-shrink: 0;
+      transition: background .2s, transform .15s;
+    }
+    .btn-quote-top:hover { background: var(--orange-h); transform: scale(1.04); }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: white; padding: 12px 20px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      border-bottom: 2px solid var(--sky-light);
+      box-shadow: 0 2px 16px rgba(10,37,64,.06);
+    }
+    .header-logo { height: 62px; width: auto; object-fit: contain; }
+    .menu-toggle {
+      position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; padding: 8px;
+      display: flex; flex-direction: column; gap: 5px; z-index: 10;
+    }
+    .menu-toggle span {
+      display: block; width: 26px; height: 2.5px;
+      background: var(--navy); border-radius: 2px;
+      transition: all .3s ease; transform-origin: center;
+    }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* ── MOBILE NAV ── */
+    .mobile-nav {
+      position: fixed; inset: 0; background: var(--navy); z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 28px; opacity: 0; pointer-events: none; transition: opacity .35s ease;
+    }
+    .mobile-nav.open { opacity: 1; pointer-events: all; }
+    .mobile-nav a {
+      color: white; font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem;
+      letter-spacing: .06em; transition: color .2s; position: relative;
+    }
+    .mobile-nav a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 3px; background: var(--orange); transition: width .3s;
+    }
+    .mobile-nav a:hover { color: var(--sky); }
+    .mobile-nav a:hover::after { width: 100%; }
+    .nav-close {
+      position: absolute; top: 20px; right: 22px;
+      background: none; border: none; color: rgba(255,255,255,.6);
+      font-size: 1.8rem; cursor: pointer; line-height: 1; transition: color .2s;
+    }
+    .nav-close:hover { color: white; }
+    .mobile-nav-phone { color: var(--sky); font-size: 1rem; font-weight: 600; margin-top: 8px; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0f3d6b 100%);
+      padding: 64px 20px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: 'SERVICES';
+      position: absolute; font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 22vw, 14rem);
+      color: rgba(255,255,255,.04);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none; letter-spacing: .12em; white-space: nowrap;
+    }
+    .page-hero-tag {
+      display: block; font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--sky);
+      margin-bottom: 10px; position: relative;
+      opacity: 0; animation: fadeUp .5s .1s forwards;
+    }
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      line-height: .94; letter-spacing: .02em;
+      color: white; position: relative;
+      opacity: 0; animation: fadeUp .6s .25s forwards;
+    }
+    .page-hero h1 span { color: var(--sky); }
+    .page-hero p {
+      font-size: .97rem; color: rgba(255,255,255,.68);
+      max-width: 480px; margin: 14px auto 0; position: relative;
+      opacity: 0; animation: fadeUp .6s .4s forwards;
+    }
+
+    /* ── SERVICES GRID ── */
+    .services-section { padding: 72px 20px; background: var(--off-white); }
+    .services-inner { max-width: 1080px; margin: 0 auto; }
+
+    .services-list { display: flex; flex-direction: column; gap: 0; }
+
+    .svc-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .65s ease, transform .65s ease;
+      border-bottom: 1.5px solid var(--border);
+    }
+    .svc-row.in { opacity: 1; transform: translateY(0); }
+    .svc-row:first-child { border-top: 1.5px solid var(--border); }
+
+    @media(min-width: 640px) {
+      .svc-row {
+        grid-template-columns: 340px 1fr;
+        align-items: stretch;
+      }
+      .svc-row.flip { grid-template-columns: 1fr 340px; }
+      .svc-row.flip .svc-img { order: 2; }
+      .svc-row.flip .svc-body { order: 1; }
+    }
+
+    .svc-img {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      background: var(--border);
+    }
+    @media(min-width:640px){ .svc-img { aspect-ratio: auto; min-height: 220px; } }
+    .svc-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .55s ease;
+    }
+    .svc-row:hover .svc-img img { transform: scale(1.06); }
+    .svc-num {
+      position: absolute; top: 14px; left: 14px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem; letter-spacing: .12em;
+      background: var(--orange); color: white;
+      padding: 3px 11px; border-radius: 4px;
+      z-index: 1;
+    }
+
+    .svc-body {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 0;
+      background: var(--sky);
+      transition: height .5s .2s ease;
+    }
+    .svc-row.in .svc-body::before { height: 100%; }
+    .svc-icon-lg { font-size: 2.2rem; margin-bottom: 10px; line-height: 1; }
+    .svc-body h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      letter-spacing: .03em; color: var(--navy);
+      line-height: 1; margin-bottom: 10px;
+    }
+    .svc-body p {
+      font-size: .92rem; color: var(--text-mid);
+      line-height: 1.7; max-width: 380px;
+    }
+    .svc-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 18px; font-size: .85rem; font-weight: 700;
+      color: var(--navy-mid);
+      transition: gap .2s;
+    }
+    .svc-link:hover { gap: 10px; }
+    .svc-link::after { content: '→'; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--navy); padding: 64px 20px; text-align: center;
+    }
+    .cta-strip h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      color: white; margin-bottom: 10px;
+    }
+    .cta-strip h2 span { color: var(--sky); }
+    .cta-strip p { font-size: .93rem; color: rgba(255,255,255,.6); max-width: 400px; margin: 0 auto 28px; }
+    .btn-primary {
+      background: var(--orange); color: white;
+      padding: 15px 34px; border-radius: 50px;
+      font-weight: 700; font-size: 1rem;
+      display: inline-block;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(245,100,0,.38);
+    }
+    .btn-primary:hover { background: var(--orange-h); transform: translateY(-2px); }
+
+    /* ── TRUST ROW ── */
+    .trust-row {
+      background: var(--sky-light);
+      border-top: 2px solid var(--border);
+      border-bottom: 2px solid var(--border);
+      padding: 13px 16px;
+    }
+    .trust-inner {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 18px 28px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 7px;
+      white-space: nowrap; font-size: .8rem; font-weight: 600; color: var(--navy);
+    }
+    .trust-item svg { fill: var(--orange); width: 17px; height: 17px; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    .footer { background: #060f1e; color: rgba(255,255,255,.58); padding: 54px 20px 28px; }
+    .footer-inner { max-width: 1080px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 1fr; gap: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 26px;
+    }
+    @media(min-width:600px){ .footer-top { grid-template-columns: 2fr 1fr 1fr; } }
+    .footer-logo { height: 50px; width: auto; }
+    .footer-brand p { font-size: .86rem; line-height: 1.7; margin-top: 13px; max-width: 280px; }
+    .footer-col h4 {
+      color: white; font-size: .85rem; font-weight: 700;
+      margin-bottom: 14px; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: .83rem; color: rgba(255,255,255,.5); transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--sky); }
+    .footer-addr { font-size: .78rem; color: rgba(255,255,255,.35); margin-top: 14px; line-height: 1.7; }
+    .social-row { display: flex; gap: 10px; margin-top: 18px; }
+    .soc-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.55); font-size: .9rem; font-weight: 700;
+      transition: all .2s;
+    }
+    .soc-btn:hover { border-color: var(--sky); color: var(--sky); background: rgba(41,182,246,.1); }
+    .footer-bottom {
+      display: flex; flex-direction: column; gap: 6px;
+      align-items: center; text-align: center; font-size: .77rem;
+    }
+    @media(min-width:600px){ .footer-bottom { flex-direction: row; justify-content: space-between; } }
+
+    /* ── FLOAT BTN ── */
+    .float-cta { position: fixed; bottom: 22px; right: 18px; z-index: 200; }
+    .float-btn {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--orange); color: white;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(245,100,0,.45);
+      font-size: 1.45rem;
+      transition: transform .2s, background .2s;
+      animation: pulse-ring 2.5s 2s infinite;
+    }
+    .float-btn:hover { transform: scale(1.1); background: var(--orange-h); animation: none; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(245,100,0,.45); }
+      70%  { box-shadow: 0 0 0 14px rgba(245,100,0,0); }
+      100% { box-shadow: 0 0 0 0 rgba(245,100,0,0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="tel:7789301940" class="tb-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        778&#8209;930&#8209;1940
+      </a>
+      <span class="tb-tag">⚡ Same-Day Response</span>
+    </div>
+    <a href="/contactus/index.html" class="btn-quote-top">Get Free Quote</a>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="/" aria-label="H2O Pressure Washing Home">
+      <img src="../logo.png" alt="H2O Pressure Washing" class="header-logo">
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <button class="nav-close" id="navClose" aria-label="Close navigation">✕</button>
+    <a href="/services/index.html">Services</a>
+    <a href="/testimonials/index.html">Testimonials</a>
+    <a href="/aboutus/index.html">About Us</a>
+    <a href="/contactus/index.html">Contact Us</a>
+    <a href="tel:7789301940" class="mobile-nav-phone">📞 778-930-1940</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <span class="page-hero-tag">What We Offer</span>
+    <h1>Our <span>Cleaning</span> Services</h1>
+    <p>Professional exterior cleaning for homes &amp; businesses across Vernon, Kelowna, Salmon Arm and the Okanagan.</p>
+  </section>
+
+  <!-- TRUST ROW -->
+  <div class="trust-row">
+    <div class="trust-inner">
+      <span class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5.25 3.5 10.15 8 11.35C16.5 21.15 20 16.25 20 11V5l-8-3zm-2 14l-4-4 1.41-1.41L10 13.17l6.59-6.59L18 8l-8 8z"/></svg>
+        Licensed &amp; Insured
+      </span>
+      <span class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Satisfaction Guaranteed
+      </span>
+      <span class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2zm1 5h-2v6l5.25 3.15.75-1.23-4-2.37V7z"/></svg>
+        Same-Day Response
+      </span>
+      <span class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        Lowest Price Guaranteed
+      </span>
+    </div>
+  </div>
+
+  <!-- SERVICES LIST -->
+  <section class="services-section">
+    <div class="services-inner">
+      <div class="services-list">
+
+        <!-- 1 — Pressure Washing -->
+        <article class="svc-row">
+          <div class="svc-img">
+            <span class="svc-num">01</span>
+            <img src="service1.jpeg" alt="Pressure Washing service in Vernon BC" loading="lazy">
+          </div>
+          <div class="svc-body">
+            <span class="svc-icon-lg">💧</span>
+            <h2>Pressure Washing</h2>
+            <p>High-powered deep cleaning that blasts away years of dirt, stains, and grime from any hard surface — restoring it to like-new condition.</p>
+            <a href="/contactus/index.html" class="svc-link">Get a Free Quote</a>
+          </div>
+        </article>
+
+        <!-- 2 — Window Cleaning -->
+        <article class="svc-row flip">
+          <div class="svc-img">
+            <span class="svc-num">02</span>
+            <img src="service2.jpeg" alt="Window Cleaning service in Kelowna BC" loading="lazy">
+          </div>
+          <div class="svc-body">
+            <span class="svc-icon-lg">🪟</span>
+            <h2>Window Cleaning</h2>
+            <p>Streak-free, crystal-clear windows inside and out — using water-fed poles and professional solutions that leave no residue behind.</p>
+            <a href="/contactus/index.html" class="svc-link">Get a Free Quote</a>
+          </div>
+        </article>
+
+        <!-- 3 — House Washing -->
+        <article class="svc-row">
+          <div class="svc-img">
+            <span class="svc-num">03</span>
+            <img src="service3.jpeg" alt="House Washing service in North Okanagan" loading="lazy">
+          </div>
+          <div class="svc-body">
+            <span class="svc-icon-lg">🏠</span>
+            <h2>House Washing</h2>
+            <p>Soft-wash your home's siding, stucco, or brick to safely eliminate mold, mildew, and algae without damaging your exterior finish.</p>
+            <a href="/contactus/index.html" class="svc-link">Get a Free Quote</a>
+          </div>
+        </article>
+
+        <!-- 4 — Driveway Cleaning -->
+        <article class="svc-row flip">
+          <div class="svc-img">
+            <span class="svc-num">04</span>
+            <img src="service4.jpeg" alt="Driveway Cleaning service in Vernon Kelowna" loading="lazy">
+          </div>
+          <div class="svc-body">
+            <span class="svc-icon-lg">🚗</span>
+            <h2>Driveway Cleaning</h2>
+            <p>Erase oil stains, tire marks, and embedded grime from concrete or asphalt driveways — boosting your home's curb appeal instantly.</p>
+            <a href="/contactus/index.html" class="svc-link">Get a Free Quote</a>
+          </div>
+        </article>
+
+        <!-- 5 — Deck & Fence Cleaning -->
+        <article class="svc-row">
+          <div class="svc-img">
+            <span class="svc-num">05</span>
+            <img src="service5.jpeg" alt="Deck and Fence Cleaning in Okanagan BC" loading="lazy">
+          </div>
+          <div class="svc-body">
+            <span class="svc-icon-lg">🌿</span>
+            <h2>Deck &amp; Fence Cleaning</h2>
+            <p>Revive weathered wood and composite surfaces — removing moss, grey staining, and rot-causing buildup so your deck looks brand new.</p>
+            <a href="/contactus/index.html" class="svc-link">Get a Free Quote</a>
+          </div>
+        </article>
+
+        <!-- 6 — Parking Lot Cleaning -->
+        <article class="svc-row flip">
+          <div class="svc-img">
+            <span class="svc-num">06</span>
+            <img src="service6.jpeg" alt="Parking Lot Cleaning commercial service BC" loading="lazy">
+          </div>
+          <div class="svc-body">
+            <span class="svc-icon-lg">🏢</span>
+            <h2>Parking Lot Cleaning</h2>
+            <p>Keep your commercial property looking professional with thorough parking lot cleaning that removes oil, debris, and unsightly buildup.</p>
+            <a href="/contactus/index.html" class="svc-link">Get a Free Quote</a>
+          </div>
+        </article>
+
+        <!-- 7 — Patio Cleaning -->
+        <article class="svc-row">
+          <div class="svc-img">
+            <span class="svc-num">07</span>
+            <img src="service7.jpeg" alt="Patio Cleaning service in Vernon and Kelowna" loading="lazy">
+          </div>
+          <div class="svc-body">
+            <span class="svc-icon-lg">☀️</span>
+            <h2>Patio Cleaning</h2>
+            <p>Transform your outdoor living space — we remove algae, moss, and stains from stone, concrete, or tile patios so you can enjoy them again.</p>
+            <a href="/contactus/index.html" class="svc-link">Get a Free Quote</a>
+          </div>
+        </article>
+
+        <!-- 8 — Sidewalk & Garage -->
+        <article class="svc-row flip">
+          <div class="svc-img">
+            <span class="svc-num">08</span>
+            <img src="service8.jpeg">
+          </div>
+          <div class="svc-body">
+            <span class="svc-icon-lg">🚪</span>
+            <h2>Sidewalk &amp; Garage</h2>
+            <p>Reclaim your entryway and garage floors — we lift stubborn stains, black marks, and years of foot traffic from concrete surfaces fast.</p>
+            <a href="/contactus/index.html" class="svc-link">Get a Free Quote</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <h2>Ready to <span>Book</span> a Service?</h2>
+    <p>Same-day response. Lowest price guaranteed. Serving 40+ Okanagan communities.</p>
+    <a href="/contactus/index.html" class="btn-primary">Get My Free Quote →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="../logo.png" alt="H2O Pressure Washing" class="footer-logo">
+          <p>North Okanagan's exterior cleaning specialists. Serving Vernon, Kelowna, Salmon Arm and 40+ communities across BC's Okanagan region. Licensed, insured &amp; satisfaction guaranteed.</p>
+          <div class="social-row">
+            <a href="https://facebook.com/test" class="soc-btn" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+            <a href="https://instagram.com/test" class="soc-btn" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+            <a href="https://google.com/test" class="soc-btn" aria-label="Google Business" target="_blank" rel="noopener">G</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/index.html">Services</a></li>
+            <li><a href="/testimonials/index.html">Testimonials</a></li>
+            <li><a href="/aboutus/index.html">About Us</a></li>
+            <li><a href="/contactus/index.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:7789301940">778-930-1940</a></li>
+            <li><a href="mailto:h2opressurewashing02@gmail.com">Send Email</a></li>
+            <li><a href="/contactus/index.html">Free Quote</a></li>
+          </ul>
+          <p class="footer-addr">3413 Okanagan Ave, Unit 30<br>Vernon, BC, Canada</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 H2O Pressure Washing. All rights reserved.</span>
+        <span>Vernon, BC · <a href="https://h2opressurewashing.ca" style="color:rgba(255,255,255,.4);">h2opressurewashing.ca</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOAT BTN -->
+  <div class="float-cta">
+    <a href="tel:7789301940" class="float-btn" aria-label="Call H2O Pressure Washing">📞</a>
+  </div>
+
+  <script>
+    // ── MENU ──────────────────────────────────────
+    const toggle = document.getElementById('menuToggle');
+    const nav    = document.getElementById('mobileNav');
+    const close  = document.getElementById('navClose');
+    function openNav()  { toggle.classList.add('open'); nav.classList.add('open'); nav.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true');  document.body.style.overflow = 'hidden'; }
+    function closeNav() { toggle.classList.remove('open'); nav.classList.remove('open'); nav.setAttribute('aria-hidden','true');  toggle.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => nav.classList.contains('open') ? closeNav() : openNav());
+    close.addEventListener('click', closeNav);
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeNav());
+
+    // ── SCROLL REVEAL ─────────────────────────────
+    const rows = document.querySelectorAll('.svc-row');
+    const obs  = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    rows.forEach(r => obs.observe(r));
+  </script>
+</body>
+</html>
