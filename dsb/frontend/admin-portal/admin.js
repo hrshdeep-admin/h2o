@@ -38,11 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ---- API helper ----------------------------------------------------------
-async function apiFetch(path, options = {}) {
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    credentials: "include", // sends the Cloudflare Access (CF_Authorization) cookie
-    headers: { "Content-Type": "application/json", ...(options.headers || {}) },
+async function apiFetch(endpoint, options = {}) {
+  const response = await fetch(endpoint, {
     ...options,
+    credentials: 'include', // This is why you need the change above!
+    headers: {
+      ...options.headers,
+      'Content-Type': 'application/json'
+    }
   });
 
   if (res.status === 401 || res.status === 403) {
