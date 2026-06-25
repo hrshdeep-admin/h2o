@@ -184,6 +184,9 @@ body {
   padding: 20px;
   z-index: 100;
 }
+.modal-overlay[hidden] {
+  display: none !important;
+}
 .modal {
   background: var(--paper);
   border-radius: var(--radius-lg);
