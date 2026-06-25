@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ---- API helper ----------------------------------------------------------
 async function apiFetch(endpoint, options = {}) {
-  const response = await fetch(endpoint, {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     ...options,
     credentials: 'include', // This is why you need the change above!
     headers: {
@@ -48,15 +48,15 @@ async function apiFetch(endpoint, options = {}) {
     }
   });
 
-  if (res.status === 401 || res.status === 403) {
+  if (response.status === 401 || response.status === 403) {
     showStatus("Your admin session expired. Refresh the page to sign in again.", true);
     throw new Error("Unauthorized");
   }
-  if (!res.ok) {
-    const body = await res.json().catch(() => ({}));
-    throw new Error(body?.message || `Request failed (${res.status})`);
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}));
+    throw new Error(body?.message || `Request failed (${response.status})`);
   }
-  return res.json();
+  return response.json();
 }
 
 function showStatus(message, isError = false) {
