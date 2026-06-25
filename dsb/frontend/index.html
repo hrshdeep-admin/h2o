@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Lesson — Drive Ready Driving School</title>
+<meta name="description" content="Book your driving lessons online. Pick a date, choose an open time slot, and get instant confirmation.">
+
+<!-- Cloudflare Turnstile -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="road-edge" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34">
+          <rect x="2" y="2" width="36" height="36" rx="8" fill="var(--navy)"/>
+          <path d="M9 24 L20 11 L31 24" stroke="var(--amber)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="20" y1="11" x2="20" y2="29" stroke="var(--amber)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">Drive&nbsp;Ready</span>
+    </a>
+    <p class="header-tagline">Book your lesson — no calls, no waiting</p>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Online booking</p>
+      <h1>Pick a day.<br>Pick a time.<br>You're booked.</h1>
+      <p class="hero-sub">Lessons run Monday–Saturday, 9 AM–6 PM. Choose an open slot below and we'll confirm by email within minutes.</p>
+      <ul class="hero-points">
+        <li><span class="dot"></span> Real-time availability — no double-booking</li>
+        <li><span class="dot"></span> Instant email confirmation</li>
+        <li><span class="dot"></span> Reschedule or cancel anytime by replying to your email</li>
+      </ul>
+    </div>
+    <div class="hero-road" aria-hidden="true">
+      <svg viewBox="0 0 260 360" width="100%" height="100%">
+        <rect x="0" y="0" width="260" height="360" rx="20" fill="var(--navy)"/>
+        <rect x="118" y="0" width="24" height="360" fill="var(--asphalt)"/>
+        <g stroke="var(--amber)" stroke-width="6" stroke-linecap="round">
+          <line x1="130" y1="10" x2="130" y2="42"/>
+          <line x1="130" y1="62" x2="130" y2="94"/>
+          <line x1="130" y1="114" x2="130" y2="146"/>
+          <line x1="130" y1="166" x2="130" y2="198"/>
+          <line x1="130" y1="218" x2="130" y2="250"/>
+          <line x1="130" y1="270" x2="130" y2="302"/>
+          <line x1="130" y1="322" x2="130" y2="354"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="booking-section wrap" id="book">
+    <div class="booking-panel">
+
+      <ol class="progress-road" id="progressRoad" aria-label="Booking progress">
+        <li class="step is-active" data-step="1"><span class="step-marker">1</span><span class="step-label">Your details</span></li>
+        <li class="step" data-step="2"><span class="step-marker">2</span><span class="step-label">Pick a time</span></li>
+        <li class="step" data-step="3"><span class="step-marker">3</span><span class="step-label">Confirm</span></li>
+      </ol>
+
+      <form id="bookingForm" novalidate>
+
+        <!-- STEP 1 -->
+        <fieldset class="form-step is-active" data-step="1">
+          <legend>Your details</legend>
+
+          <div class="field">
+            <label for="clientName">Full name</label>
+            <input type="text" id="clientName" name="client_name" required autocomplete="name" placeholder="Jordan Smith">
+            <p class="field-error" data-for="clientName"></p>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="(555) 123-4567">
+              <p class="field-error" data-for="phone"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+              <p class="field-error" data-for="email"></p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="classesNeeded">Number of classes</label>
+              <select id="classesNeeded" name="classes_needed" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="1">1 class</option>
+                <option value="5">5-class package</option>
+                <option value="10">10-class package</option>
+                <option value="20">20-class package (full course)</option>
+              </select>
+              <p class="field-error" data-for="classesNeeded"></p>
+            </div>
+            <div class="field">
+              <label for="currentLicense">Current license status</label>
+              <select id="currentLicense" name="current_license" required>
+                <option value="" disabled selected>Select…</option>
+                <option value="none">No license / permit yet</option>
+                <option value="learner">Learner's permit</option>
+                <option value="provisional">Provisional / restricted license</option>
+                <option value="full">Full license (refresher lessons)</option>
+              </select>
+              <p class="field-error" data-for="currentLicense"></p>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn btn-primary" data-action="next">Continue to scheduling</button>
+          </div>
+        </fieldset>
+
+        <!-- STEP 2 -->
+        <fieldset class="form-step" data-step="2">
+          <legend>Pick a time</legend>
+
+          <div class="field">
+            <label for="appointmentDate">Date</label>
+            <input type="date" id="appointmentDate" name="appointment_date" required>
+            <p class="field-error" data-for="appointmentDate"></p>
+          </div>
+
+          <div class="field">
+            <label for="timeSlot">Available time slots</label>
+            <select id="timeSlot" name="time_slot" required disabled>
+              <option value="" disabled selected>Choose a date first…</option>
+            </select>
+            <p class="field-hint" id="availabilityHint">Slots run Monday–Saturday, 9 AM–6 PM.</p>
+            <p class="field-error" data-for="timeSlot"></p>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn btn-ghost" data-action="back">Back</button>
+            <button type="button" class="btn btn-primary" data-action="next">Continue</button>
+          </div>
+        </fieldset>
+
+        <!-- STEP 3 -->
+        <fieldset class="form-step" data-step="3">
+          <legend>Confirm your booking</legend>
+
+          <dl class="summary-list" id="summaryList"></dl>
+
+          <div class="field turnstile-field">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADqjlwdq2hB36K1x" data-callback="onTurnstileSuccess" data-theme="light"></div>
+            <p class="field-error" id="turnstileError"></p>
+          </div>
+
+          <div class="step-actions">
+            <button type="button" class="btn btn-ghost" data-action="back">Back</button>
+            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+              <span class="btn-label">Confirm booking</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+        </fieldset>
+
+      </form>
+
+      <div class="form-result" id="formResult" hidden></div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="year"></span> Drive Ready Driving School. Questions? <a href="mailto:hello@example.com">hello@example.com</a></p>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

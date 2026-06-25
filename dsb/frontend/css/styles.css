@@ -1,0 +1,437 @@
+/* =========================================================
+   Drive Ready — Design Tokens
+   Palette: deep navy (trust) + road-sign amber (action/signal)
+   asphalt grey + chalk white + a single "go" green for success
+   ========================================================= */
+:root {
+  --navy: #122035;
+  --navy-deep: #0a1422;
+  --asphalt: #2b3340;
+  --amber: #f2a900;
+  --amber-deep: #c9890a;
+  --chalk: #f7f5ef;
+  --paper: #fffefb;
+  --ink: #1a2230;
+  --ink-soft: #4d5666;
+  --line: #e3ddd0;
+  --go: #1f7a4d;
+  --stop: #b3261e;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius: 10px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 2px rgba(10, 20, 34, 0.06), 0 8px 24px rgba(10, 20, 34, 0.08);
+  --max-width: 1080px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--chalk);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Signature element: a thin amber dashed "road edge" running down the
+   far left of the viewport — a literal lane line, present throughout. */
+.road-edge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--amber) 0px,
+    var(--amber) 28px,
+    transparent 28px,
+    transparent 52px
+  );
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  background: var(--navy);
+  border-bottom: 1px solid var(--navy-deep);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.brand-mark { flex-shrink: 0; }
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--chalk);
+  letter-spacing: -0.01em;
+}
+.header-tagline {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #b9c2cf;
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
+}
+@media (max-width: 640px) {
+  .header-tagline { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 48px;
+  align-items: center;
+  padding-top: 56px;
+  padding-bottom: 48px;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--amber-deep);
+  margin: 0 0 12px;
+  font-weight: 500;
+}
+.hero-copy h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+  color: var(--navy);
+}
+.hero-sub {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 480px;
+  margin: 0 0 24px;
+}
+.hero-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hero-points li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.hero-points .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+}
+.hero-road {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding-top: 36px; }
+  .hero-road { max-width: 220px; margin: 0 auto; }
+}
+
+/* ---------- Booking panel ---------- */
+.booking-section { padding-bottom: 80px; }
+
+.booking-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 36px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+@media (max-width: 520px) {
+  .booking-panel { padding: 24px 18px; }
+}
+
+/* Progress road: numbered steps connected by a dashed line, echoing
+   the hero's road graphic without repeating it visually. */
+.progress-road {
+  display: flex;
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  counter-reset: none;
+}
+.progress-road .step {
+  flex: 1;
+  position: relative;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.progress-road .step::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(to right, var(--line) 0 6px, transparent 6px 12px);
+  z-index: 0;
+}
+.progress-road .step:first-child::before { content: none; }
+.step-marker {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+.step-label { display: block; }
+.progress-road .step.is-active .step-marker {
+  border-color: var(--amber);
+  background: var(--amber);
+  color: var(--navy);
+}
+.progress-road .step.is-active .step-label { color: var(--navy); font-weight: 600; }
+.progress-road .step.is-complete .step-marker {
+  border-color: var(--go);
+  background: var(--go);
+  color: var(--paper);
+}
+
+/* Form */
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.form-step { display: none; }
+.form-step.is-active { display: block; }
+legend {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.field { margin-bottom: 18px; }
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 480px) {
+  .field-row { grid-template-columns: 1fr; }
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+input, select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 11px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color 0.15s ease;
+}
+input::placeholder { color: #a8a094; }
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--amber-deep);
+  box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.18);
+}
+select:disabled { background: #f1efe9; color: #a8a094; cursor: not-allowed; }
+
+.field-hint {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+.field-error {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: var(--stop);
+  min-height: 0;
+}
+.field.has-error input,
+.field.has-error select {
+  border-color: var(--stop);
+}
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+}
+.step-actions .btn-primary { margin-left: auto; }
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
+  padding: 12px 22px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary {
+  background: var(--amber);
+  color: var(--navy-deep);
+}
+.btn-primary:hover { background: var(--amber-deep); }
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1.5px solid var(--line);
+}
+.btn-ghost:hover { border-color: var(--ink-soft); color: var(--ink); }
+
+.btn-submit { position: relative; display: inline-flex; align-items: center; gap: 10px; }
+.btn-spinner {
+  display: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(10, 20, 34, 0.25);
+  border-top-color: var(--navy-deep);
+  border-radius: 50%;
+}
+.btn-submit.is-loading .btn-spinner {
+  display: inline-block;
+  animation: spin 0.7s linear infinite;
+}
+.btn-submit.is-loading .btn-label { opacity: 0.7; }
+.btn-submit:disabled { cursor: not-allowed; opacity: 0.75; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-spinner { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* Summary list, step 3 */
+.summary-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  margin: 0 0 24px;
+  padding: 16px 18px;
+  background: var(--chalk);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+.summary-list dt {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.summary-list dd {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.turnstile-field { display: flex; flex-direction: column; align-items: flex-start; }
+
+/* Result state (success / error) replaces the form */
+.form-result {
+  text-align: center;
+  padding: 32px 12px 8px;
+}
+.form-result .result-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-result.is-success .result-icon { background: rgba(31, 122, 77, 0.12); }
+.form-result.is-error .result-icon { background: rgba(179, 38, 30, 0.12); }
+.form-result h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0 0 8px;
+  color: var(--navy);
+}
+.form-result p { color: var(--ink-soft); margin: 0 0 20px; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: var(--navy-deep);
+  padding: 24px 0;
+}
+.site-footer p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #8a93a3;
+  text-align: center;
+}
+.site-footer a { color: var(--amber); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* Visible keyboard focus everywhere */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--amber-deep);
+  outline-offset: 2px;
+}

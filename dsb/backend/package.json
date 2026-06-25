@@ -1,0 +1,14 @@
+{
+  "name": "driving-school-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute driving-booking-db --file=./schema.sql",
+    "db:init:remote": "wrangler d1 execute driving-booking-db --remote --file=./schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

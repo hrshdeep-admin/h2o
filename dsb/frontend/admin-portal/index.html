@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Drive Ready</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- FullCalendar -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <header class="admin-header">
+    <div class="admin-header-left">
+      <span class="admin-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="28" height="28">
+          <rect x="2" y="2" width="36" height="36" rx="8" fill="var(--navy)"/>
+          <path d="M9 24 L20 11 L31 24" stroke="var(--amber)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="20" y1="11" x2="20" y2="29" stroke="var(--amber)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="admin-title">Drive Ready <span class="admin-title-sub">/ admin</span></span>
+    </div>
+    <div class="admin-header-right">
+      <button class="btn btn-ghost" id="refreshBtn" type="button">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.6-6.4L21 8"/><path d="M21 3v5h-5"/></svg>
+        Refresh
+      </button>
+      <button class="btn btn-primary" id="manageOverridesBtn" type="button">Manage schedule blocks</button>
+    </div>
+  </header>
+
+  <div class="admin-status-bar" id="statusBar" hidden></div>
+
+  <main class="admin-main">
+    <aside class="admin-sidebar">
+      <h2 class="sidebar-heading">Today</h2>
+      <div class="stat-grid" id="statGrid">
+        <div class="stat-card">
+          <span class="stat-value" id="statPending">—</span>
+          <span class="stat-label">Pending</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statConfirmed">—</span>
+          <span class="stat-label">Confirmed</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statTotal">—</span>
+          <span class="stat-label">Total this week</span>
+        </div>
+      </div>
+
+      <h2 class="sidebar-heading">Legend</h2>
+      <ul class="legend-list">
+        <li><span class="legend-dot status-pending"></span> Pending</li>
+        <li><span class="legend-dot status-confirmed"></span> Confirmed</li>
+        <li><span class="legend-dot status-cancelled"></span> Cancelled</li>
+        <li><span class="legend-dot status-blocked"></span> Schedule block</li>
+      </ul>
+    </aside>
+
+    <section class="calendar-wrap">
+      <div id="calendar"></div>
+    </section>
+  </main>
+</div>
+
+<!-- Appointment detail / edit modal -->
+<div class="modal-overlay" id="appointmentModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-header">
+      <h2 id="modalTitle">Appointment details</h2>
+      <button class="modal-close" id="closeModalBtn" type="button" aria-label="Close">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <dl class="detail-list" id="detailList"></dl>
+
+      <div class="field">
+        <label for="editStatus">Status</label>
+        <select id="editStatus">
+          <option value="Pending">Pending</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="editDate">Date</label>
+          <input type="date" id="editDate">
+        </div>
+        <div class="field">
+          <label for="editTime">Time slot</label>
+          <input type="text" id="editTime" placeholder="09:00 AM">
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-danger" id="deleteAppointmentBtn" type="button">Delete</button>
+      <div class="modal-footer-right">
+        <button class="btn btn-ghost" id="cancelEditBtn" type="button">Cancel</button>
+        <button class="btn btn-primary" id="saveAppointmentBtn" type="button">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Schedule overrides modal -->
+<div class="modal-overlay" id="overridesModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="overridesTitle">
+    <div class="modal-header">
+      <h2 id="overridesTitle">Schedule blocks</h2>
+      <button class="modal-close" id="closeOverridesBtn" type="button" aria-label="Close">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <p class="modal-hint">Block off a holiday, a single time slot, or a recurring weekly closure.</p>
+
+      <form id="overrideForm">
+        <div class="field">
+          <label for="overrideType">Block type</label>
+          <select id="overrideType">
+            <option value="date">Specific date</option>
+            <option value="recurring">Recurring weekly</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <div class="field" id="overrideDateField">
+            <label for="overrideDate">Date</label>
+            <input type="date" id="overrideDate">
+          </div>
+          <div class="field" id="overrideDayField" hidden>
+            <label for="overrideDay">Day of week</label>
+            <select id="overrideDay">
+              <option value="1">Monday</option>
+              <option value="2">Tuesday</option>
+              <option value="3">Wednesday</option>
+              <option value="4">Thursday</option>
+              <option value="5">Friday</option>
+              <option value="6">Saturday</option>
+              <option value="0">Sunday</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="overrideTimeSlot">Time slot</label>
+            <input type="text" id="overrideTimeSlot" placeholder="e.g. 09:00 AM, or 'all day'" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add block</button>
+      </form>
+
+      <h3 class="overrides-list-heading">Current blocks</h3>
+      <ul class="overrides-list" id="overridesList">
+        <li class="overrides-empty">Loading…</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

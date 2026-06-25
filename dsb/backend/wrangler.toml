@@ -1,0 +1,15 @@
+name = "driving-school-api"
+main = "src/index.js"
+compatibility_date = "2026-06-24"
+
+[vars]
+ADMIN_EMAIL = "admin@example.com"
+EMAIL_FROM = "Drive Ready <onboarding@resend.dev>"
+
+# Secrets (set via `wrangler secret put <NAME>`, do not put real values here):
+#   RESEND_API_KEY
+#   TURNSTILE_SECRET_KEY
+[[d1_databases]]
+binding = "DB"
+database_name = "driving-booking-db"
+database_id = "ec5d18f5-dabd-410c-a791-f4d7723046cd"
