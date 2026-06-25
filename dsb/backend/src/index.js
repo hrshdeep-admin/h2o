@@ -69,9 +69,14 @@ export default {
 
       return jsonResponse({ message: "Not found" }, 404);
     } catch (err) {
-      console.error("Worker error:", err);
-      return jsonResponse({ message: "Internal server error" }, 500);
-    }
+    console.error("Worker error:", err);
+    // Add CORS headers to the error response so you can see the real error in the browser
+    return new Response(JSON.stringify({ message: err.message }), {
+      status: 500,
+      headers: {
+        "Content-Type": "application/json",
+        ...corsHeaders(),
+      },
   },
 };
 
