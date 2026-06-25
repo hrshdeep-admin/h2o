@@ -51,6 +51,22 @@ export default {
         return await handleAddOverride(request, env);
       }
 
+      // GET /api/admin/overrides
+      if (pathname === "/api/admin/overrides" && method === "GET") {
+        return await handleGetOverrides(env);
+      }
+
+      // DELETE /api/admin/overrides/:id
+      const overrideMatch = pathname.match(/^\/api\/admin\/overrides\/(\d+)$/);
+      if (overrideMatch && method === "DELETE") {
+        return await handleDeleteOverride(env, overrideMatch[1]);
+      }
+
+      // DELETE /api/admin/appointments/:id
+      if (appointmentMatch && method === "DELETE") {
+        return await handleDeleteAppointment(env, appointmentMatch[1]);
+      }
+
       return jsonResponse({ message: "Not found" }, 404);
     } catch (err) {
       console.error("Worker error:", err);
@@ -204,4 +220,37 @@ async function handleAddOverride(request, env) {
     },
     201
   );
+}
+
+// ---- GET /api/admin/overrides --------------------------------------------
+async function handleGetOverrides(env) {
+  const result = await env.DB.prepare(
+    `SELECT * FROM ScheduleOverrides ORDER BY id DESC`
+  ).all();
+
+  return jsonResponse({ overrides: result.results || [] });
+}
+
+// ---- DELETE /api/admin/overrides/:id --------------------------------------
+async function handleDeleteOverride(env, id) {
+  const result = await env.DB.prepare(
+    `DELETE FROM ScheduleOverrides WHERE id = ?`
+  ).bind(id).run();
+
+  if (result.meta.changes === 0) {
+    return jsonResponse({ message: "Override not found." }, 404);
+  }
+  return jsonResponse({ message: "Override deleted." });
+}
+
+// ---- DELETE /api/admin/appointments/:id -----------------------------------
+async function handleDeleteAppointment(env, id) {
+  const result = await env.DB.prepare(
+    `DELETE FROM Appointments WHERE id = ?`
+  ).bind(id).run();
+
+  if (result.meta.changes === 0) {
+    return jsonResponse({ message: "Appointment not found." }, 404);
+  }
+  return jsonResponse({ message: "Appointment deleted." });
 }
