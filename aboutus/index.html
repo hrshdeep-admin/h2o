@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a2540">
+  <meta name="description" content="Meet Yashtaj, founder of H2O Pressure Washing — a locally owned, affordable pressure washing company proudly serving Vernon, Kelowna and the Okanagan.">
+  <title>About Us | H2O Pressure Washing — Vernon &amp; Kelowna, BC</title>
+  <link rel="canonical" href="https://h2opressurewashing.ca/aboutus/index.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Us | H2O Pressure Washing">
+  <meta property="og:description" content="A locally owned, affordable pressure washing company serving Vernon, Kelowna and the Okanagan.">
+  <meta property="og:url" content="https://h2opressurewashing.ca/aboutus/index.html">
+  <meta property="og:image" content="https://h2opressurewashing.ca/logo.png">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "H2O Pressure Washing",
+    "description": "Locally owned, affordable pressure washing serving Vernon, Kelowna and the Okanagan Valley.",
+    "image": "https://h2opressurewashing.ca/logo.png",
+    "url": "https://h2opressurewashing.ca/aboutus/index.html",
+    "telephone": "+1-778-930-1940",
+    "email": "h2opressurewashing02@gmail.com",
+    "founder": { "@type": "Person", "name": "Yashtaj" },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3413 Okanagan Ave, Unit 30",
+      "addressLocality": "Vernon",
+      "addressRegion": "BC",
+      "addressCountry": "CA"
+    },
+    "areaServed": "Okanagan Valley, BC",
+    "priceRange": "$$"
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy:      #0a2540;
+      --navy-mid:  #1565c0;
+      --sky:       #29b6f6;
+      --sky-light: #e1f5fe;
+      --orange:    #f56400;
+      --orange-h:  #d45500;
+      --white:     #ffffff;
+      --off-white: #f5f9fc;
+      --text:      #0d1b2a;
+      --text-mid:  #3d5a73;
+      --text-lt:   #7092a8;
+      --border:    #cfe2ef;
+      --shadow:    0 4px 24px rgba(10,37,64,.10);
+      --shadow-lg: 0 10px 48px rgba(10,37,64,.18);
+      --r:         14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--navy); color: white;
+      padding: 9px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 900; gap: 10px;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+    .tb-phone {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .9rem; font-weight: 700; color: white; white-space: nowrap;
+    }
+    .tb-phone svg { width: 16px; height: 16px; fill: var(--sky); flex-shrink: 0; }
+    .tb-tag { font-size: .7rem; font-weight: 500; color: var(--sky); white-space: nowrap; display: none; }
+    @media(min-width:480px){ .tb-tag { display: block; } }
+    .btn-quote-top {
+      background: var(--orange); color: white;
+      padding: 7px 16px; border-radius: 50px;
+      font-weight: 700; font-size: .82rem; white-space: nowrap; flex-shrink: 0;
+      transition: background .2s, transform .15s;
+    }
+    .btn-quote-top:hover { background: var(--orange-h); transform: scale(1.04); }
+
+    /* ── HEADER & NAVIGATION ── */
+    .site-header {
+      background: white; padding: 12px 20px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      border-bottom: 2px solid var(--sky-light);
+      box-shadow: 0 2px 16px rgba(10,37,64,.06);
+    }
+    .header-logo { height: 62px; width: auto; object-fit: contain; }
+    
+    .desktop-nav { display: none; }
+
+    @media(min-width: 768px) {
+      .site-header { justify-content: space-between; padding: 12px 40px; }
+      .desktop-nav { display: flex; gap: 28px; align-items: center; }
+      .desktop-nav a { 
+        font-family: 'Bebas Neue', sans-serif; 
+        font-size: 1.4rem; 
+        letter-spacing: .04em; 
+        color: var(--navy); 
+        transition: color .2s; 
+      }
+      .desktop-nav a:hover { color: var(--sky); }
+      .desktop-nav a[aria-current="page"] { color: var(--sky); }
+    }
+
+    .menu-toggle {
+      position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; padding: 8px;
+      display: flex; flex-direction: column; gap: 5px; z-index: 10;
+    }
+    .menu-toggle span {
+      display: block; width: 26px; height: 2.5px;
+      background: var(--navy); border-radius: 2px;
+      transition: all .3s ease; transform-origin: center;
+    }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+    
+    @media(min-width: 768px) {
+      .menu-toggle { display: none; }
+    }
+
+    /* ── MOBILE NAV ── */
+    .mobile-nav {
+      position: fixed; inset: 0; background: var(--navy); z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 28px; opacity: 0; pointer-events: none; transition: opacity .35s ease;
+    }
+    .mobile-nav.open { opacity: 1; pointer-events: all; }
+    .mobile-nav a {
+      color: white; font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem;
+      letter-spacing: .06em; transition: color .2s; position: relative;
+    }
+    .mobile-nav a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 3px; background: var(--orange); transition: width .3s;
+    }
+    .mobile-nav a:hover { color: var(--sky); }
+    .mobile-nav a:hover::after { width: 100%; }
+    .mobile-nav a[aria-current="page"] { color: var(--sky); }
+    .mobile-nav a[aria-current="page"]::after { width: 100%; }
+    .nav-close {
+      position: absolute; top: 20px; right: 22px;
+      background: none; border: none; color: rgba(255,255,255,.6);
+      font-size: 1.8rem; cursor: pointer; line-height: 1; transition: color .2s;
+    }
+    .nav-close:hover { color: white; }
+    .mobile-nav-phone { display: flex; align-items: center; gap: 8px; color: var(--sky); font-size: 1rem; font-weight: 600; margin-top: 8px; }
+    .mobile-nav-phone svg { width: 16px; height: 16px; fill: var(--sky); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0f3d6b 100%);
+      padding: 64px 20px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: 'ABOUT';
+      position: absolute; font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 22vw, 14rem);
+      color: rgba(255,255,255,.04);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none; letter-spacing: .12em; white-space: nowrap;
+    }
+    .page-hero-tag {
+      display: block; font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--sky);
+      margin-bottom: 10px; position: relative;
+      opacity: 0; animation: fadeUp .5s .1s forwards;
+    }
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      line-height: .94; letter-spacing: .02em;
+      color: white; position: relative;
+      opacity: 0; animation: fadeUp .6s .25s forwards;
+    }
+    .page-hero h1 span { color: var(--sky); }
+    .page-hero p {
+      font-size: .97rem; color: rgba(255,255,255,.68);
+      max-width: 480px; margin: 14px auto 0; position: relative;
+      opacity: 0; animation: fadeUp .6s .4s forwards;
+    }
+
+    /* ── SHARED SECTION LABELS ── */
+    .section-tag {
+      display: block; font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--navy-mid);
+      margin-bottom: 10px;
+    }
+
+    /* ── FOUNDER ── */
+    .founder-section { padding: 76px 20px; background: var(--white); }
+    .founder-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;
+    }
+    @media(min-width:760px){ .founder-inner { grid-template-columns: 280px 1fr; gap: 64px; } }
+
+    .founder-visual {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease;
+    }
+    .founder-visual.in { opacity: 1; transform: translateY(0); }
+    .founder-avatar {
+      width: 148px; height: 148px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: white;
+      box-shadow: var(--shadow-lg); border: 4px solid var(--sky-light);
+    }
+    .founder-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: .04em; color: var(--navy); margin-top: 14px; }
+    .founder-role { font-size: .78rem; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: .08em; margin-top: 2px; }
+
+    .founder-text {
+      opacity: 0; transform: translateY(28px); transition: opacity .65s .1s ease, transform .65s .1s ease;
+    }
+    .founder-text.in { opacity: 1; transform: translateY(0); }
+    .founder-text h2 {
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--navy); line-height: 1; letter-spacing: .02em; margin-bottom: 18px;
+    }
+    .founder-text h2 span { color: var(--orange); }
+    .founder-text p { font-size: .96rem; line-height: 1.75; color: var(--text-mid); max-width: 560px; }
+    .founder-text p + p { margin-top: 14px; }
+    .founder-quote {
+      font-style: italic; font-weight: 600; font-size: 1.05rem; line-height: 1.6;
+      color: var(--navy); border-left: 4px solid var(--orange);
+      padding-left: 18px; margin-top: 24px; max-width: 540px;
+    }
+    .founder-quote cite {
+      display: block; font-style: normal; font-weight: 700; font-size: .76rem;
+      text-transform: uppercase; letter-spacing: .07em; color: var(--orange); margin-top: 10px;
+    }
+
+    /* ── STATS ── */
+    .stats-section { padding: 64px 20px; background: var(--sky-light); border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); }
+    .stats-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
+    .stats-inner h2 {
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--navy); margin-bottom: 40px;
+    }
+    .stats-inner h2 span { color: var(--orange); }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 16px; }
+    @media(min-width:640px){ .stats-grid { grid-template-columns: repeat(5, 1fr); gap: 16px; } }
+    .stat-item {
+      opacity: 0; transform: translateY(22px); transition: opacity .55s ease, transform .55s ease;
+    }
+    .stat-item.in { opacity: 1; transform: translateY(0); }
+    .stat-item:nth-child(2){ transition-delay: .08s; }
+    .stat-item:nth-child(3){ transition-delay: .16s; }
+    .stat-item:nth-child(4){ transition-delay: .24s; }
+    .stat-item:nth-child(5){ transition-delay: .32s; }
+    .stat-value { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.1rem, 6vw, 2.9rem); color: var(--navy); line-height: 1; }
+    .stat-label { font-size: .76rem; font-weight: 600; color: var(--text-mid); margin-top: 6px; text-transform: uppercase; letter-spacing: .04em; }
+
+    /* ── VALUES ── */
+    .values-section { padding: 76px 20px; background: var(--off-white); }
+    .values-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
+    .values-inner > h2 {
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--navy); margin-bottom: 44px;
+    }
+    .values-inner > h2 span { color: var(--orange); }
+    .values-grid { display: grid; grid-template-columns: 1fr; gap: 24px; text-align: left; }
+    @media(min-width:760px){ .values-grid { grid-template-columns: repeat(3, 1fr); } }
+    .value-card {
+      background: var(--white); border-radius: var(--r); padding: 32px 26px;
+      box-shadow: var(--shadow);
+      opacity: 0; transform: translateY(26px);
+      transition: opacity .55s ease, transform .55s ease, box-shadow .25s ease;
+    }
+    .value-card.in { opacity: 1; transform: translateY(0); }
+    .value-card:nth-child(2){ transition-delay: .1s; }
+    .value-card:nth-child(3){ transition-delay: .2s; }
+    .value-card:hover { box-shadow: var(--shadow-lg); }
+    .value-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--sky-light); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .value-icon svg { width: 24px; height: 24px; fill: var(--orange); }
+    .value-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: .03em; color: var(--navy); margin-bottom: 10px; line-height: 1.1; }
+    .value-card p { font-size: .9rem; line-height: 1.7; color: var(--text-mid); }
+    .values-footnote { text-align: center; font-size: .78rem; color: var(--text-lt); margin-top: 30px; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip { background: var(--navy); padding: 64px 20px; text-align: center; }
+    .cta-strip h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 6vw, 3.4rem); color: white; margin-bottom: 10px; }
+    .cta-strip h2 span { color: var(--sky); }
+    .cta-strip p { font-size: .93rem; color: rgba(255,255,255,.6); max-width: 400px; margin: 0 auto 28px; }
+    .btn-primary {
+      background: var(--orange); color: white;
+      padding: 15px 34px; border-radius: 50px;
+      font-weight: 700; font-size: 1rem;
+      display: inline-block;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 4px 24px rgba(245,100,0,.38);
+    }
+    .btn-primary:hover { background: var(--orange-h); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    .footer { background: #060f1e; color: rgba(255,255,255,.58); padding: 54px 20px 28px; }
+    .footer-inner { max-width: 1080px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 1fr; gap: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 26px;
+    }
+    @media(min-width:600px){ .footer-top { grid-template-columns: 2fr 1fr 1fr; } }
+    .footer-logo { height: 50px; width: auto; }
+    .footer-brand p { font-size: .86rem; line-height: 1.7; margin-top: 13px; max-width: 280px; }
+    .footer-col h4 {
+      color: white; font-size: .85rem; font-weight: 700;
+      margin-bottom: 14px; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: .83rem; color: rgba(255,255,255,.5); transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--sky); }
+    .footer-col ul li a[aria-current="page"] { color: var(--sky); }
+    .footer-addr { font-size: .78rem; color: rgba(255,255,255,.35); margin-top: 14px; line-height: 1.7; }
+    .social-row { display: flex; gap: 10px; margin-top: 18px; }
+    .soc-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.55); font-size: .9rem; font-weight: 700;
+      transition: all .2s;
+    }
+    .soc-btn:hover { border-color: var(--sky); color: var(--sky); background: rgba(41,182,246,.1); }
+    .footer-bottom {
+      display: flex; flex-direction: column; gap: 6px;
+      align-items: center; text-align: center; font-size: .77rem;
+    }
+    @media(min-width:600px){ .footer-bottom { flex-direction: row; justify-content: space-between; } }
+
+    /* ── FLOAT BTN ── */
+    .float-cta { position: fixed; bottom: 22px; right: 18px; z-index: 200; }
+    .float-btn {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--orange); color: white;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(245,100,0,.45);
+      transition: transform .2s, background .2s;
+      animation: pulse-ring 2.5s 2s infinite;
+    }
+    .float-btn svg { width: 24px; height: 24px; fill: white; }
+    .float-btn:hover { transform: scale(1.1); background: var(--orange-h); animation: none; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(245,100,0,.45); }
+      70%  { box-shadow: 0 0 0 14px rgba(245,100,0,0); }
+      100% { box-shadow: 0 0 0 0 rgba(245,100,0,0); }
+    }
+
+    /* ── ACCESSIBILITY: REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important; scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="tel:7789301940" class="tb-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        778&#8209;930&#8209;1940
+      </a>
+      <span class="tb-tag">Same-Day Response</span>
+    </div>
+    <a href="/contactus/index.html" class="btn-quote-top">Get Free Quote</a>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="/" aria-label="H2O Pressure Washing Home">
+      <img src="../logo.png" alt="H2O Pressure Washing" class="header-logo">
+    </a>
+    
+    <!-- DESKTOP NAV -->
+    <nav class="desktop-nav" aria-label="Main Navigation">
+      <a href="/services/index.html">Services</a>
+      <a href="/testimonials/index.html">Testimonials</a>
+      <a href="/aboutus/index.html" aria-current="page">About Us</a>
+      <a href="/contactus/index.html">Contact Us</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <button class="nav-close" id="navClose" aria-label="Close navigation">✕</button>
+    <a href="/services/index.html">Services</a>
+    <a href="/testimonials/index.html">Testimonials</a>
+    <a href="/aboutus/index.html" aria-current="page">About Us</a>
+    <a href="/contactus/index.html">Contact Us</a>
+    <a href="tel:7789301940" class="mobile-nav-phone">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      778-930-1940
+    </a>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <span class="page-hero-tag">Who We Are</span>
+      <h1>About <span>Us</span></h1>
+      <p>A locally owned pressure washing company on a mission to make every home and business across the Okanagan shine — without the heavy price tag.</p>
+    </section>
+
+    <!-- FOUNDER / STORY -->
+    <section class="founder-section">
+      <div class="founder-inner">
+        <div class="founder-visual">
+          <div class="founder-avatar" aria-hidden="true">Y</div>
+          <p class="founder-name">Yashtaj</p>
+          <p class="founder-role">Founder &amp; Owner</p>
+        </div>
+        <div class="founder-text">
+          <span class="section-tag">Our Story</span>
+          <h2>Why I Started <span>H2O</span></h2>
+          <p>H2O Pressure Washing started with one simple goal: give every homeowner and business in the Okanagan access to professional exterior cleaning without paying a heavy price tag. Too many people were stuck choosing between a dirty property and an overpriced quote — I wanted to change that.</p>
+          <p>As a one-person company, I personally handle every job from quote to final rinse. No subcontractors, no call centers, no corner-cutting — just careful work and direct accountability to every customer I serve.</p>
+          <blockquote class="founder-quote">
+            My goal is simple — to make our city shining and beautiful, one property at a time.
+            <cite>Yashtaj, Founder of H2O Pressure Washing</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-section">
+      <div class="stats-inner">
+        <span class="section-tag">By The Numbers</span>
+        <h2>Trusted Across The <span>Okanagan</span></h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value">21+</div>
+            <div class="stat-label">Homes Restored</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">5.0</div>
+            <div class="stat-label">Star Rating</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Satisfaction Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">40+</div>
+            <div class="stat-label">Areas Served</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">Certified</div>
+            <div class="stat-label">Professional Service</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="values-section">
+      <div class="values-inner">
+        <span class="section-tag">Why Choose Us</span>
+        <h2>What Sets Us <span>Apart</span></h2>
+        <div class="values-grid">
+
+          <div class="value-card">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+            </div>
+            <h3>Affordable For Everyone</h3>
+            <p>Quality pressure washing shouldn't be a luxury. Our rates are built to stay fair and accessible, so every home and business in the Okanagan can afford to shine.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L21 10L21 21L3 21L3 10Z"/></svg>
+            </div>
+            <h3>Locally Owned &amp; Operated</h3>
+            <p>Based right here in Vernon, BC. When you call H2O, you speak directly with the owner — not a call center, not a stranger.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L4 5v6c0 5.25 3.5 10.15 8 11.35C16.5 21.15 20 16.25 20 11V5l-8-3zm-2 14l-4-4 1.41-1.41L10 13.17l6.59-6.59L18 8l-8 8z"/></svg>
+            </div>
+            <h3>Best Price Guarantee</h3>
+            <p>Found a lower quote elsewhere? Show us the receipt and we'll refund the difference.* The most competitive pricing in the Okanagan, guaranteed.</p>
+          </div>
+
+        </div>
+        <p class="values-footnote">*Terms and conditions apply. Contact us for full details.</p>
+      </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="cta-strip">
+      <h2>Ready To Make Your Property <span>Shine</span>?</h2>
+      <p>Get a fast, free, no-obligation quote — affordable pricing, guaranteed lowest price in the Okanagan.</p>
+      <a href="/contactus/index.html" class="btn-primary">Get My Free Quote →</a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="../logo.png" alt="H2O Pressure Washing" class="footer-logo">
+          <p>North Okanagan's exterior cleaning specialists. Serving Vernon, Kelowna, Salmon Arm and 40+ communities across BC's Okanagan region. Licensed, insured &amp; satisfaction guaranteed.</p>
+          <div class="social-row">
+            <a href="https://facebook.com/test" class="soc-btn" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+            <a href="https://instagram.com/test" class="soc-btn" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+            <a href="https://google.com/test" class="soc-btn" aria-label="Google Business" target="_blank" rel="noopener">G</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/index.html">Services</a></li>
+            <li><a href="/testimonials/index.html">Testimonials</a></li>
+            <li><a href="/aboutus/index.html" aria-current="page">About Us</a></li>
+            <li><a href="/contactus/index.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:7789301940">778-930-1940</a></li>
+            <li><a href="/contactus/index.html">Send Email</a></li>
+            <li><a href="/contactus/index.html">Free Quote</a></li>
+          </ul>
+          <p class="footer-addr">3413 Okanagan Ave, Unit 30<br>Vernon, BC, Canada</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 H2O Pressure Washing. All rights reserved.</span>
+        <span>Vernon, BC · <a href="https://h2opressurewashing.ca" style="color:rgba(255,255,255,.4);">h2opressurewashing.ca</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOAT BTN -->
+  <div class="float-cta">
+    <a href="tel:7789301940" class="float-btn" aria-label="Call H2O Pressure Washing">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    </a>
+  </div>
+
+  <script>
+    // ── MENU ──────────────────────────────────────
+    const toggle = document.getElementById('menuToggle');
+    const nav    = document.getElementById('mobileNav');
+    const close  = document.getElementById('navClose');
+    function openNav()  { toggle.classList.add('open'); nav.classList.add('open'); nav.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true');  document.body.style.overflow = 'hidden'; }
+    function closeNav() { toggle.classList.remove('open'); nav.classList.remove('open'); nav.setAttribute('aria-hidden','true');  toggle.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => nav.classList.contains('open') ? closeNav() : openNav());
+    close.addEventListener('click', closeNav);
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeNav());
+
+    // ── SCROLL REVEAL ─────────────────────────────
+    const revealEls = document.querySelectorAll('.founder-visual, .founder-text, .stat-item, .value-card');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
