@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact H2O Pressure Washing for a free quote — Pressure Washing, Window Cleaning, House Washing and more in Vernon, Kelowna & across the Okanagan.">
+  <title>Contact Us | H2O Pressure Washing — Vernon & Kelowna, BC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:      #0a2540;
+      --navy-mid:  #1565c0;
+      --sky:       #29b6f6;
+      --sky-light: #e1f5fe;
+      --orange:    #f56400;
+      --orange-h:  #d45500;
+      --white:     #ffffff;
+      --off-white: #f5f9fc;
+      --text:      #0d1b2a;
+      --text-mid:  #3d5a73;
+      --text-lt:   #7092a8;
+      --border:    #cfe2ef;
+      --shadow:    0 4px 24px rgba(10,37,64,.10);
+      --shadow-lg: 0 10px 48px rgba(10,37,64,.18);
+      --r:         14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--navy); color: white;
+      padding: 9px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 900; gap: 10px;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+    .tb-phone {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .9rem; font-weight: 700; color: white; white-space: nowrap;
+    }
+    .tb-phone svg { width: 16px; height: 16px; fill: var(--sky); flex-shrink: 0; }
+    .tb-tag { font-size: .7rem; font-weight: 500; color: var(--sky); white-space: nowrap; display: none; }
+    @media(min-width:480px){ .tb-tag { display: block; } }
+    .btn-quote-top {
+      background: var(--orange); color: white;
+      padding: 7px 16px; border-radius: 50px;
+      font-weight: 700; font-size: .82rem; white-space: nowrap; flex-shrink: 0;
+      transition: background .2s, transform .15s;
+    }
+    .btn-quote-top:hover { background: var(--orange-h); transform: scale(1.04); }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: white; padding: 12px 20px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      border-bottom: 2px solid var(--sky-light);
+      box-shadow: 0 2px 16px rgba(10,37,64,.06);
+    }
+    .header-logo { height: 62px; width: auto; object-fit: contain; }
+    .menu-toggle {
+      position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; padding: 8px;
+      display: flex; flex-direction: column; gap: 5px; z-index: 10;
+    }
+    .menu-toggle span {
+      display: block; width: 26px; height: 2.5px;
+      background: var(--navy); border-radius: 2px;
+      transition: all .3s ease; transform-origin: center;
+    }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* ── MOBILE NAV ── */
+    .mobile-nav {
+      position: fixed; inset: 0; background: var(--navy); z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 28px; opacity: 0; pointer-events: none; transition: opacity .35s ease;
+    }
+    .mobile-nav.open { opacity: 1; pointer-events: all; }
+    .mobile-nav a {
+      color: white; font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem;
+      letter-spacing: .06em; transition: color .2s; position: relative;
+    }
+    .mobile-nav a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 3px; background: var(--orange); transition: width .3s;
+    }
+    .mobile-nav a:hover { color: var(--sky); }
+    .mobile-nav a:hover::after { width: 100%; }
+    .nav-close {
+      position: absolute; top: 20px; right: 22px;
+      background: none; border: none; color: rgba(255,255,255,.6);
+      font-size: 1.8rem; cursor: pointer; line-height: 1; transition: color .2s;
+    }
+    .nav-close:hover { color: white; }
+    .mobile-nav-phone { color: var(--sky); font-size: 1rem; font-weight: 600; margin-top: 8px; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0f3d6b 100%);
+      padding: 64px 20px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: 'CONTACT';
+      position: absolute; font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 22vw, 14rem);
+      color: rgba(255,255,255,.04);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none; letter-spacing: .12em; white-space: nowrap;
+    }
+    .page-hero-tag {
+      display: block; font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--sky);
+      margin-bottom: 10px; position: relative;
+      opacity: 0; animation: fadeUp .5s .1s forwards;
+    }
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      line-height: .94; letter-spacing: .02em;
+      color: white; position: relative;
+      opacity: 0; animation: fadeUp .6s .25s forwards;
+    }
+    .page-hero h1 span { color: var(--sky); }
+    .page-hero p {
+      font-size: .97rem; color: rgba(255,255,255,.68);
+      max-width: 480px; margin: 14px auto 0; position: relative;
+      opacity: 0; animation: fadeUp .6s .4s forwards;
+    }
+
+    /* ── TRUST ROW ── */
+    .trust-row {
+      background: var(--sky-light);
+      border-top: 2px solid var(--border);
+      border-bottom: 2px solid var(--border);
+      padding: 13px 16px;
+    }
+    .trust-inner {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 18px 28px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 7px;
+      white-space: nowrap; font-size: .8rem; font-weight: 600; color: var(--navy);
+    }
+    .trust-item svg { fill: var(--orange); width: 17px; height: 17px; flex-shrink: 0; }
+
+    /* ── CONTACT SECTION ── */
+    .contact-section { padding: 72px 20px; background: var(--off-white); }
+    .contact-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 40px;
+    }
+    @media(min-width: 860px) {
+      .contact-inner { grid-template-columns: .85fr 1.15fr; align-items: start; }
+    }
+
+    /* ── INFO COLUMN ── */
+    .contact-info { display: flex; flex-direction: column; gap: 16px; }
+    .info-card {
+      background: white; border: 1.5px solid var(--border);
+      border-radius: var(--r); padding: 22px 24px;
+      display: flex; align-items: flex-start; gap: 14px;
+      box-shadow: var(--shadow);
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .info-card.in { opacity: 1; transform: translateY(0); }
+    .info-icon {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      background: var(--sky-light); display: flex; align-items: center; justify-content: center;
+    }
+    .info-icon svg { width: 20px; height: 20px; fill: var(--navy-mid); }
+    .info-card h3 {
+      font-family: 'Bebas Neue', sans-serif; letter-spacing: .03em;
+      font-size: 1.15rem; color: var(--navy); margin-bottom: 4px;
+    }
+    .info-card p, .info-card a { font-size: .88rem; color: var(--text-mid); line-height: 1.6; }
+    .info-card a:hover { color: var(--navy-mid); }
+
+    .hours-list { display: flex; flex-direction: column; gap: 3px; }
+    .hours-list li { list-style: none; display: flex; justify-content: space-between; gap: 12px; font-size: .85rem; color: var(--text-mid); }
+    .hours-list li span:last-child { font-weight: 600; color: var(--navy); }
+
+    .map-wrap {
+      border-radius: var(--r); overflow: hidden;
+      border: 1.5px solid var(--border); box-shadow: var(--shadow);
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .map-wrap.in { opacity: 1; transform: translateY(0); }
+    .map-wrap iframe { width: 100%; height: 240px; border: 0; display: block; }
+
+    /* ── FORM COLUMN ── */
+    .contact-form-card {
+      background: white; border-radius: var(--r);
+      border: 1.5px solid var(--border); box-shadow: var(--shadow-lg);
+      padding: 36px 32px;
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .contact-form-card.in { opacity: 1; transform: translateY(0); }
+    .contact-form-card h2 {
+      font-family: 'Bebas Neue', sans-serif; letter-spacing: .02em;
+      font-size: clamp(1.8rem, 4vw, 2.3rem); color: var(--navy); margin-bottom: 6px;
+    }
+    .contact-form-card > p { font-size: .9rem; color: var(--text-mid); margin-bottom: 26px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; }
+    @media(min-width: 480px) { .form-row.two { grid-template-columns: 1fr 1fr; } }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: .78rem; font-weight: 700; color: var(--navy); letter-spacing: .02em; }
+    .field input, .field select, .field textarea {
+      font-family: 'DM Sans', sans-serif; font-size: .92rem; color: var(--text);
+      border: 1.5px solid var(--border); border-radius: 9px;
+      padding: 11px 13px; background: var(--off-white);
+      transition: border-color .2s, background .2s, box-shadow .2s;
+      width: 100%;
+    }
+    .field textarea { resize: vertical; min-height: 110px; font-family: inherit; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none; border-color: var(--sky); background: white;
+      box-shadow: 0 0 0 3px rgba(41,182,246,.15);
+    }
+    .field-hint { font-size: .74rem; color: var(--text-lt); }
+    .field.error input, .field.error select, .field.error textarea { border-color: #e53935; }
+    .field-error-msg { font-size: .74rem; color: #e53935; display: none; }
+    .field.error .field-error-msg { display: block; }
+
+    .btn-submit {
+      background: var(--orange); color: white; border: none;
+      padding: 15px 34px; border-radius: 50px;
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1rem;
+      cursor: pointer; width: 100%;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(245,100,0,.32);
+      margin-top: 6px;
+    }
+    .btn-submit:hover { background: var(--orange-h); transform: translateY(-2px); }
+    .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    .form-note {
+      font-size: .76rem; color: var(--text-lt); text-align: center; margin-top: 14px;
+    }
+    .form-status {
+      display: none; margin-top: 16px; padding: 12px 14px; border-radius: 9px;
+      font-size: .85rem; font-weight: 600;
+    }
+    .form-status.show { display: block; }
+    .form-status.ok   { background: #e6f7ed; color: #1b7a3d; border: 1px solid #b6e6c6; }
+    .form-status.fail { background: #fdecea; color: #c62828; border: 1px solid #f4c2c0; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip { background: var(--navy); padding: 64px 20px; text-align: center; }
+    .cta-strip h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      color: white; margin-bottom: 10px;
+    }
+    .cta-strip h2 span { color: var(--sky); }
+    .cta-strip p { font-size: .93rem; color: rgba(255,255,255,.6); max-width: 400px; margin: 0 auto 28px; }
+    .btn-primary {
+      background: var(--orange); color: white;
+      padding: 15px 34px; border-radius: 50px;
+      font-weight: 700; font-size: 1rem;
+      display: inline-block;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(245,100,0,.38);
+    }
+    .btn-primary:hover { background: var(--orange-h); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    .footer { background: #060f1e; color: rgba(255,255,255,.58); padding: 54px 20px 28px; }
+    .footer-inner { max-width: 1080px; margin: 0 auto; }
+    .footer-top {
+      display: grid; grid-template-columns: 1fr; gap: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 26px;
+    }
+    @media(min-width:600px){ .footer-top { grid-template-columns: 2fr 1fr 1fr; } }
+    .footer-logo { height: 50px; width: auto; }
+    .footer-brand p { font-size: .86rem; line-height: 1.7; margin-top: 13px; max-width: 280px; }
+    .footer-col h4 {
+      color: white; font-size: .85rem; font-weight: 700;
+      margin-bottom: 14px; letter-spacing: .06em; text-transform: uppercase;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: .83rem; color: rgba(255,255,255,.5); transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--sky); }
+    .footer-addr { font-size: .78rem; color: rgba(255,255,255,.35); margin-top: 14px; line-height: 1.7; }
+    .social-row { display: flex; gap: 10px; margin-top: 18px; }
+    .soc-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.55); font-size: .9rem; font-weight: 700;
+      transition: all .2s;
+    }
+    .soc-btn:hover { border-color: var(--sky); color: var(--sky); background: rgba(41,182,246,.1); }
+    .footer-bottom {
+      display: flex; flex-direction: column; gap: 6px;
+      align-items: center; text-align: center; font-size: .77rem;
+    }
+    @media(min-width:600px){ .footer-bottom { flex-direction: row; justify-content: space-between; } }
+
+    /* ── FLOAT BTN ── */
+    .float-cta { position: fixed; bottom: 22px; right: 18px; z-index: 200; }
+    .float-btn {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--orange); color: white;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(245,100,0,.45);
+      font-size: 1.45rem;
+      transition: transform .2s, background .2s;
+      animation: pulse-ring 2.5s 2s infinite;
+    }
+    .float-btn:hover { transform: scale(1.1); background: var(--orange-h); animation: none; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(245,100,0,.45); }
+      70%  { box-shadow: 0 0 0 14px rgba(245,100,0,0); }
+      100% { box-shadow: 0 0 0 0 rgba(245,100,0,0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="tel:7789301940" class="tb-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        778&#8209;930&#8209;1940
+      </a>
+      <span class="tb-tag">⚡ Same-Day Response</span>
+    </div>
+    <a href="/contactus/index.html" class="btn-quote-top">Get Free Quote</a>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="/" aria-label="H2O Pressure Washing Home">
+      <img src="../logo.png" alt="H2O Pressure Washing" class="header-logo">
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <button class="nav-close" id="navClose" aria-label="Close navigation">✕</button>
+    <a href="/services/index.html">Services</a>
+    <a href="/testimonials/index.html">Testimonials</a>
+    <a href="/aboutus/index.html">About Us</a>
+    <a href="/contactus/index.html">Contact Us</a>
+    <a href="tel:7789301940" class="mobile-nav-phone">📞 778-930-1940</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <span class="page-hero-tag">We'd Love To Hear From You</span>
+    <h1>Get In <span>Touch</span></h1>
+    <p>Request a free quote or ask a question — we respond same-day, 7 days a week, across Vernon, Kelowna &amp; the Okanagan.</p>
+  </section>
+
+  <!-- TRUST ROW -->
+  <div class="trust-row">
+    <div class="trust-inner">
+      <span class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5.25 3.5 10.15 8 11.35C16.5 21.15 20 16.25 20 11V5l-8-3zm-2 14l-4-4 1.41-1.41L10 13.17l6.59-6.59L18 8l-8 8z"/></svg>
+        Licensed &amp; Insured
+      </span>
+      <span class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Satisfaction Guaranteed
+      </span>
+      <span class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2zm1 5h-2v6l5.25 3.15.75-1.23-4-2.37V7z"/></svg>
+        Same-Day Response
+      </span>
+      <span class="trust-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        Lowest Price Guaranteed
+      </span>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="contact-inner">
+
+      <!-- INFO COLUMN -->
+      <div class="contact-info">
+
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          </div>
+          <div>
+            <h3>Call or Text</h3>
+            <a href="tel:7789301940">778-930-1940</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <a href="mailto:h2opressurewashing02@gmail.com">h2opressurewashing02@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>
+          </div>
+          <div>
+            <h3>Service Area</h3>
+            <p>3413 Okanagan Ave, Unit 30<br>Vernon, BC, Canada</p>
+            <p>Serving Vernon, Kelowna, Salmon Arm &amp; 40+ Okanagan communities</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2zm1 5h-2v6l5.25 3.15.75-1.23-4-2.37V7z"/></svg>
+          </div>
+          <div>
+            <h3>Hours</h3>
+            <ul class="hours-list">
+              <li><span>Mon – Fri</span><span>7am – 7pm</span></li>
+              <li><span>Saturday</span><span>8am – 6pm</span></li>
+              <li><span>Sunday</span><span>By Request</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=3413%20Okanagan%20Ave%2C%20Unit%2030%2C%20Vernon%2C%20BC&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            title="H2O Pressure Washing location map"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div>
+
+      <!-- FORM COLUMN -->
+      <div class="contact-form-card">
+        <h2>Request Your Free Quote</h2>
+        <p>Fill out the form below and we'll get back to you the same day.</p>
+
+        <form id="contactForm" novalidate>
+          <div class="form-row two">
+            <div class="field" data-field="name">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+              <span class="field-error-msg">Please enter your name.</span>
+            </div>
+            <div class="field" data-field="phone">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" name="phone" placeholder="778-000-0000" required>
+              <span class="field-error-msg">Please enter a valid phone number.</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field" data-field="email">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="jane@email.com" required>
+              <span class="field-error-msg">Please enter a valid email.</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field" data-field="service">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="">Select a service…</option>
+                <option>Pressure Washing</option>
+                <option>Window Cleaning</option>
+                <option>House Washing</option>
+                <option>Driveway Cleaning</option>
+                <option>Deck & Fence Cleaning</option>
+                <option>Parking Lot Cleaning</option>
+                <option>Patio Cleaning</option>
+                <option>Sidewalk & Garage</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field" data-field="message">
+              <label for="message">Tell Us About Your Project</label>
+              <textarea id="message" name="message" placeholder="Property type, approximate size, and anything else that would help us quote accurately…"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">Send My Request →</button>
+          <p class="form-note">We reply the same day. Your info is never shared or sold.</p>
+          <div class="form-status" id="formStatus"></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <h2>Prefer to <span>Talk</span>?</h2>
+    <p>Give us a call — we're happy to answer questions and give you a quote over the phone.</p>
+    <a href="tel:7789301940" class="btn-primary">📞 Call 778-930-1940</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="../logo.png" alt="H2O Pressure Washing" class="footer-logo">
+          <p>North Okanagan's exterior cleaning specialists. Serving Vernon, Kelowna, Salmon Arm and 40+ communities across BC's Okanagan region. Licensed, insured &amp; satisfaction guaranteed.</p>
+          <div class="social-row">
+            <a href="https://facebook.com/test" class="soc-btn" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+            <a href="https://instagram.com/test" class="soc-btn" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+            <a href="https://google.com/test" class="soc-btn" aria-label="Google Business" target="_blank" rel="noopener">G</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/index.html">Services</a></li>
+            <li><a href="/testimonials/index.html">Testimonials</a></li>
+            <li><a href="/aboutus/index.html">About Us</a></li>
+            <li><a href="/contactus/index.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:7789301940">778-930-1940</a></li>
+            <li><a href="mailto:h2opressurewashing02@gmail.com">Send Email</a></li>
+            <li><a href="/contactus/index.html">Free Quote</a></li>
+          </ul>
+          <p class="footer-addr">3413 Okanagan Ave, Unit 30<br>Vernon, BC, Canada</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 H2O Pressure Washing. All rights reserved.</span>
+        <span>Vernon, BC · <a href="https://h2opressurewashing.ca" style="color:rgba(255,255,255,.4);">h2opressurewashing.ca</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOAT BTN -->
+  <div class="float-cta">
+    <a href="tel:7789301940" class="float-btn" aria-label="Call H2O Pressure Washing">📞</a>
+  </div>
+
+  <script>
+    // ── MENU ──────────────────────────────────────
+    const toggle = document.getElementById('menuToggle');
+    const nav    = document.getElementById('mobileNav');
+    const close  = document.getElementById('navClose');
+    function openNav()  { toggle.classList.add('open'); nav.classList.add('open'); nav.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true');  document.body.style.overflow = 'hidden'; }
+    function closeNav() { toggle.classList.remove('open'); nav.classList.remove('open'); nav.setAttribute('aria-hidden','true');  toggle.setAttribute('aria-expanded','false'); document.body.style.overflow = ''; }
+    toggle.addEventListener('click', () => nav.classList.contains('open') ? closeNav() : openNav());
+    close.addEventListener('click', closeNav);
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    document.addEventListener('keydown', e => e.key === 'Escape' && closeNav());
+
+    // ── SCROLL REVEAL ─────────────────────────────
+    const revealEls = document.querySelectorAll('.info-card, .map-wrap, .contact-form-card');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => obs.observe(el));
+
+    // ── CONTACT FORM ──────────────────────────────
+    const form   = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // NOTE: This posts to a placeholder endpoint. Point CONTACT_ENDPOINT at your
+    // /dsb/backend worker route (see email.js) once it's deployed, and the form
+    // will submit silently via fetch. Until then it falls back to opening the
+    // visitor's email client with the details pre-filled.
+    const CONTACT_ENDPOINT = '/api/contact';
+
+    function setError(fieldName, hasError) {
+      const el = form.querySelector(`[data-field="${fieldName}"]`);
+      if (el) el.classList.toggle('error', hasError);
+    }
+
+    function validate(data) {
+      let valid = true;
+      if (!data.name.trim()) { setError('name', true); valid = false; } else setError('name', false);
+      const phoneOk = /^[\d\s()+\-.]{7,}$/.test(data.phone.trim());
+      if (!phoneOk) { setError('phone', true); valid = false; } else setError('phone', false);
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim());
+      if (!emailOk) { setError('email', true); valid = false; } else setError('email', false);
+      return valid;
+    }
+
+    function showStatus(msg, ok) {
+      status.textContent = msg;
+      status.className = 'form-status show ' + (ok ? 'ok' : 'fail');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      if (!validate(data)) {
+        showStatus('Please fix the highlighted fields and try again.', false);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const res = await fetch(CONTACT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (!res.ok) throw new Error('bad response');
+        showStatus('Thanks! Your request has been sent — we\'ll be in touch shortly.', true);
+        form.reset();
+      } catch (err) {
+        // Fallback: open a pre-filled email so the message is never lost.
+        const subject = encodeURIComponent(`Free Quote Request — ${data.service || 'General'}`);
+        const body = encodeURIComponent(
+          `Name: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nService: ${data.service}\n\nDetails:\n${data.message}`
+        );
+        window.location.href = `mailto:h2opressurewashing02@gmail.com?subject=${subject}&body=${body}`;
+        showStatus('Opening your email app to send your request…', true);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send My Request →';
+      }
+    });
+  </script>
+</body>
+</html>
